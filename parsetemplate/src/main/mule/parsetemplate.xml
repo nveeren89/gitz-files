@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a89b59a1-4e2e-4103-8e37-8cdc30af943e" >
+		<http:listener-connection host="0.0.0.0" port="5454" />
+	</http:listener-config>
+	<flow name="parsetemplateFlow" doc:id="b2c32ac9-8505-4049-9515-c3bd473df9b6" >
+		<http:listener doc:name="Listener" doc:id="22f44516-0216-496d-897a-e040292fa2d5" config-ref="HTTP_Listener_config" path="parse"/>
+		<parse-template doc:name="Parse Template" doc:id="4c0c07a1-6ea3-4156-a9f7-0d9b51405ee4" location="E:\mulsoft documents\parse jay"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2058ace7-c57e-4ff1-a169-8aed2040baac" message="successfully parse template complete"/>
+	</flow>
+</mule>
